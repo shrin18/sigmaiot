@@ -17,15 +17,15 @@ namespace read_d2c_messages
     {
         // Event Hub-compatible endpoint
         // az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {your IoT Hub name}
-        private const string EventHubsCompatibleEndpoint = "{your Event Hubs compatible endpoint}";
+        private const string EventHubsCompatibleEndpoint = "sb://ihsuprodblres094dednamespace.servicebus.windows.net/";
 
         // Event Hub-compatible name
         // az iot hub show --query properties.eventHubEndpoints.events.path --name {your IoT Hub name}
-        private const string EventHubName = "{your Event Hubs compatible name}";
+        private const string EventHubName = "iothub-ehub-sigmaiot-3697250-352a765f9c";
 
         // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
         private const string IotHubSasKeyName = "service";
-        private const string IotHubSasKey = "{your service primary key}";
+        private const string IotHubSasKey = "3Vupif/boWGadEZ9eJOt7JysQDgxuKp35grvjPw0Vd4=";
 
         // Asynchronously create a PartitionReceiver for a partition and then start
         // reading any messages sent from the simulated client.
