@@ -25,7 +25,7 @@ namespace back_end_application
             methodInvocation.SetPayloadJson("10");
 
             // Invoke the direct method asynchronously and get the response from the simulated device.
-            var response = await s_serviceClient.InvokeDeviceMethodAsync("MyDotnetDevice", methodInvocation);
+            var response = await s_serviceClient.InvokeDeviceMethodAsync("MyDotNetDevice", methodInvocation);
 
             Console.WriteLine("Response status: {0}, payload:", response.Status);
             Console.WriteLine(response.GetPayloadAsJson());
