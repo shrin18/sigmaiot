@@ -14,7 +14,7 @@ namespace Microsoft.Azure.Devices.Client.Samples
         // - pass this value as a command-prompt argument
         // - set the IOTHUB_MODULE_CONN_STRING environment variable 
         // - create a launchSettings.json (see launchSettings.json.template) containing the variable
-        private static string s_moduleConnectionString = Environment.GetEnvironmentVariable("IOTHUB_MODULE_CONN_STRING");
+        private static string s_moduleConnectionString = Environment.GetEnvironmentVariable("HostName=sigmaiot.azure-devices.net;DeviceId=MyDotNetDevice;SharedAccessKey=j5QDzOzHu0YW87W5xGO+/GostheTnQ9tI/WVaA8kr8o=");
 
         // Select one of the following transports used by ModuleClient to connect to IoT Hub.
         private static TransportType s_transportType = TransportType.Amqp;

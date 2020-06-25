@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+﻿    // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 // This application uses the Azure IoT Hub service SDK for .NET
@@ -15,12 +15,13 @@ namespace back_end_application
         
         // Connection string for your IoT Hub
         // az iot hub show-connection-string --hub-name {your iot hub name} --policy-name service
-        private readonly static string s_connectionString = "{Your service connection string here}";
+        private readonly static string s_connectionString = "HostName=sigmaiot.azure-devices.net;DeviceId=MyDotNetDevice;SharedAccessKey=j5QDzOzHu0YW87W5xGO+/GostheTnQ9tI/WVaA8kr8o=";
 
         // Invoke the direct method on the device, passing the payload
         private static async Task InvokeMethod()
         {
-            var methodInvocation = new CloudToDeviceMethod("SetTelemetryInterval") { ResponseTimeout = TimeSpan.FromSeconds(30) };
+            var methodInvocation = new CloudToDeviceMethod("SetTelemetryInterval") 
+            {                   ResponseTimeout = TimeSpan.FromSeconds(30) };
             methodInvocation.SetPayloadJson("10");
 
             // Invoke the direct method asynchronously and get the response from the simulated device.

@@ -14,6 +14,7 @@ namespace Microsoft.Azure.Devices.Client.Samples
         private static Random s_randomGenerator = new Random();
         private float _temperature;
         private float _humidity;
+        private float _rainfall;
         private ModuleClient _moduleClient;
 
         public MessageSample(ModuleClient moduleClient)

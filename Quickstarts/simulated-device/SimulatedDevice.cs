@@ -19,7 +19,7 @@ namespace simulated_device
         // The device connection string to authenticate the device with your IoT hub.
         // Using the Azure CLI:
         // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
-        private readonly static string s_connectionString = "{Your device connection string here}";
+        private readonly static string s_connectionString = "HostName=sigmaiot.azure-devices.net;DeviceId=MyDotNetDevice;SharedAccessKey=j5QDzOzHu0YW87W5xGO+/GostheTnQ9tI/WVaA8kr8o=";
 
         // Async method to send simulated telemetry
         private static async void SendDeviceToCloudMessagesAsync()
@@ -27,18 +27,20 @@ namespace simulated_device
             // Initial telemetry values
             double minTemperature = 20;
             double minHumidity = 60;
+            double minRainfall = 100;
             Random rand = new Random();
 
             while (true)
             {
                 double currentTemperature = minTemperature + rand.NextDouble() * 15;
                 double currentHumidity = minHumidity + rand.NextDouble() * 20;
-
+                double currentRainfall = minRainfall + rand.NextDouble() * 25;
                 // Create JSON message
                 var telemetryDataPoint = new
                 {
                     temperature = currentTemperature,
-                    humidity = currentHumidity
+                    humidity = currentHumidity,
+                    rainfall = currentRainfall
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
                 var message = new Message(Encoding.ASCII.GetBytes(messageString));

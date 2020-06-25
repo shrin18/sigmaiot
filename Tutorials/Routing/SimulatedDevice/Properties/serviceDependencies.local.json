@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Storage/storageAccounts/csb10037ffead799337",
+      "type": "storage.azure",
+      "connectionId": "conn2storage",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}

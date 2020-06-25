@@ -32,11 +32,11 @@ namespace SimulatedDevice
     class Program
     {
         private static DeviceClient s_deviceClient;
-        private readonly static string s_myDeviceId = "Contoso-Test-Device";
-        private readonly static string s_iotHubUri = "{your hub name}.azure-devices.net";
+        private readonly static string s_myDeviceId = "dockan";
+        private readonly static string s_iotHubUri = "https://sigmaiotexercisetest.blob.core.windows.net/;";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        private readonly static string s_deviceKey = "{your device key}";
+        private readonly static string s_deviceKey = "sv=2017-11-09&ss=bfqt&srt=sco&sp=rl&se=2028-09-27T16:27:24Z&st=2018-09 27T08:27:24Z&spr=https&sig=eYVbQneRuiGn103jUuZvNa6RleEeoCFx1IftVin6wuA%3D";
 
         // If this is false, it will submit messages to the iot hub. 
         // If this is true, it will read one of the output files and convert it to ASCII.
@@ -74,12 +74,14 @@ namespace SimulatedDevice
         {
             double minTemperature = 20;
             double minHumidity = 60;
+            double minRainfall = 100;
             Random rand = new Random();
 
             while (true)
             {
                 double currentTemperature = minTemperature + rand.NextDouble() * 15;
                 double currentHumidity = minHumidity + rand.NextDouble() * 20;
+                double currentRainfall = minRainfall + rand.NextDouble();
 
                 string infoString;
                 string levelValue;
@@ -108,6 +110,7 @@ namespace SimulatedDevice
                     deviceId = s_myDeviceId,
                     temperature = currentTemperature,
                     humidity = currentHumidity,
+                    rainfall = currentRainfall,
                     pointInfo = infoString
                 };
                 // serialize the telemetry data and convert it to JSON.
@@ -151,7 +154,7 @@ namespace SimulatedDevice
         /// </summary>
         private static void ReadOneRowFromFile()
         {
-            string filePathAndName = "C:\\Users\\username\\Desktop\\testfiles\\47_utf32.txt";
+            string filePathAndName = "C:\\Users\\Shrinish\\Desktop\\testfiles\\data.txt";
 
             // Set the output file name. 
             // Read in the file to an array of objects. These were encoded in Base64 when they were
